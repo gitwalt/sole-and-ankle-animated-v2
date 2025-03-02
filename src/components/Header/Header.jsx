@@ -58,7 +58,6 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   border-bottom: 1px solid var(--color-gray-300);
   overflow: auto;
-
   @media ${QUERIES.tabletAndSmaller} {
     justify-content: space-between;
     align-items: center;
