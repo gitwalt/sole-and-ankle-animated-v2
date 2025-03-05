@@ -20,12 +20,30 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">
+            <NavContent>Sale</NavContent>
+            <NavContent>Sale</NavContent>
+          </NavLink>
+          <NavLink href="/new">
+            <NavContent>New&nbsp;Releases</NavContent>
+            <NavContent>New&nbsp;Releases</NavContent>
+          </NavLink>
+          <NavLink href="/men">
+            <NavContent>Men</NavContent>
+            <NavContent>Men</NavContent>
+          </NavLink>
+          <NavLink href="/women">
+            <NavContent>Women</NavContent>
+            <NavContent>Women</NavContent>
+          </NavLink>
+          <NavLink href="/kids">
+            <NavContent>Kids</NavContent>
+            <NavContent>Kids</NavContent>
+          </NavLink>
+          <NavLink href="/collections">
+            <NavContent>Collections</NavContent>
+            <NavContent>Collections</NavContent>
+          </NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -114,15 +132,36 @@ const Filler = styled.div`
 `;
 
 const NavLink = styled.a`
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-gray-900);
-  font-weight: ${WEIGHTS.medium};
+	font-size: 1.125rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--color-gray-900);
+	font-weight: ${WEIGHTS.medium};
+	display: flex;
+	height: 1.5rem;
+  
+	flex-direction: column;
+	overflow: hidden;
+	
+	&:first-of-type {
+		color: var(--color-secondary);
+	}
+	
+	&:hover > span {
+		transform: translateY(-1.5rem);
+		transition: transform 200ms;
+	}
+`;
 
-  &:first-of-type {
-    color: var(--color-secondary);
+const NavContent = styled.span`
+  height: 1.5rem;
+  line-height: 1.5rem;
+  transition: transform 200ms;
+  
+  &:last-of-type {
+    font-weight: 700;
   }
 `;
+
 
 export default Header;

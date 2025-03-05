@@ -76,11 +76,23 @@ const Link = styled.a`
 const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
-  position: relative;
+	position: relative;
+	overflow: hidden;
+	border-radius: 16px 16px 4px 4px;
+	
+	&:hover > img {
+		@media (prefers-reduced-motion: no-preference) {
+			transform: scale(1.1);
+			transition: transform 150ms;
+			will-change: transform;
+		}
 `;
 
 const Image = styled.img`
   width: 100%;
+  display: block;
+  transition: transform 500ms;
+  transform-origin: 50% 70%;
   border-radius: 16px 16px 4px 4px;
 `;
 
