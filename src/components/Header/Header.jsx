@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { QUERIES, WEIGHTS } from '../../constants';
+import {QUERIES, WEIGHTS} from '../../constants';
 import Logo from '../Logo';
 import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
@@ -10,125 +10,121 @@ import MobileMenu from '../MobileMenu';
 import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+	const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  return (
-    <header>
-      <SuperHeader />
-      <MainHeader>
-        <LogoWrapper>
-          <Logo />
-        </LogoWrapper>
-        <DesktopNav>
-          <NavLink href="/sale">
-            <NavContent>Sale</NavContent>
-            <NavContent>Sale</NavContent>
-          </NavLink>
-          <NavLink href="/new">
-            <NavContent>New&nbsp;Releases</NavContent>
-            <NavContent>New&nbsp;Releases</NavContent>
-          </NavLink>
-          <NavLink href="/men">
-            <NavContent>Men</NavContent>
-            <NavContent>Men</NavContent>
-          </NavLink>
-          <NavLink href="/women">
-            <NavContent>Women</NavContent>
-            <NavContent>Women</NavContent>
-          </NavLink>
-          <NavLink href="/kids">
-            <NavContent>Kids</NavContent>
-            <NavContent>Kids</NavContent>
-          </NavLink>
-          <NavLink href="/collections">
-            <NavContent>Collections</NavContent>
-            <NavContent>Collections</NavContent>
-          </NavLink>
-        </DesktopNav>
-        <MobileActions>
-          <ShoppingBagButton>
-            <Icon id="shopping-bag" />
-            <VisuallyHidden>Open cart</VisuallyHidden>
-          </ShoppingBagButton>
-          <UnstyledButton>
-            <Icon id="search" />
-            <VisuallyHidden>Search</VisuallyHidden>
-          </UnstyledButton>
-          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-            <Icon id="menu" />
-            <VisuallyHidden>Open menu</VisuallyHidden>
-          </UnstyledButton>
-        </MobileActions>
-        <Filler />
-      </MainHeader>
+	return (
+		<header>
+			<SuperHeader/>
+			<MainHeader>
+				<LogoWrapper>
+					<Logo/>
+				</LogoWrapper>
+				<DesktopNav>
+					<NavLink href="/sale">
+						<span data-hover="Sale">
+							Sale
+						</span>
+					</NavLink>
+					<NavLink href="/new">
+            <span data-hover="New&nbsp;Releases">
+              New&nbsp;Releases
+            </span>
+					</NavLink>
+					<NavLink href="/men">
+            <span data-hover="Men">
+              Men
+            </span>
+					</NavLink>
+					<NavLink href="/women">
+            <span data-hover="Women">
+              Women
+            </span>
+					</NavLink>
+					<NavLink href="/kids">
+            <span data-hover="Kids">Kids</span>
+					</NavLink>
+					<NavLink href="/collections">
+            <span data-hover="Collection">Collection</span>
+					</NavLink>
+				</DesktopNav>
+				<MobileActions>
+					<ShoppingBagButton>
+						<Icon id="shopping-bag"/>
+						<VisuallyHidden>Open cart</VisuallyHidden>
+					</ShoppingBagButton>
+					<UnstyledButton>
+						<Icon id="search"/>
+						<VisuallyHidden>Search</VisuallyHidden>
+					</UnstyledButton>
+					<UnstyledButton onClick={() => setShowMobileMenu(true)}>
+						<Icon id="menu"/>
+						<VisuallyHidden>Open menu</VisuallyHidden>
+					</UnstyledButton>
+				</MobileActions>
+				<Filler/>
+			</MainHeader>
 
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
-    </header>
-  );
+			<MobileMenu
+				isOpen={showMobileMenu}
+				onDismiss={() => setShowMobileMenu(false)}
+			/>
+		</header>
+	);
 };
 
 const MainHeader = styled.div`
-  display: flex;
-  align-items: baseline;
-  padding: 18px 32px;
-  border-bottom: 1px solid var(--color-gray-300);
-  overflow: auto;
-  @media ${QUERIES.tabletAndSmaller} {
-    justify-content: space-between;
-    align-items: center;
-    border-top: 4px solid var(--color-gray-900);
-  }
-
-  @media ${QUERIES.phoneAndSmaller} {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+	display: flex;
+	align-items: baseline;
+	padding: 18px 32px;
+	border-bottom: 1px solid var(--color-gray-300);
+	overflow: auto;
+	@media ${QUERIES.tabletAndSmaller} {
+		justify-content: space-between;
+		align-items: center;
+		border-top: 4px solid var(--color-gray-900);
+	}
+	@media ${QUERIES.phoneAndSmaller} {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 `;
 
 const DesktopNav = styled.nav`
-  display: flex;
-  gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
-  margin: 0px 48px;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    display: none;
-  }
+	display: flex;
+	gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
+	margin: 0px 48px;
+	@media ${QUERIES.tabletAndSmaller} {
+		display: none;
+	}
 `;
 
 const MobileActions = styled.div`
-  display: none;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    gap: 32px;
-    display: flex;
-  }
-
-  @media ${QUERIES.phoneAndSmaller} {
-    gap: 16px;
-  }
+	display: none;
+	@media ${QUERIES.tabletAndSmaller} {
+		gap: 32px;
+		display: flex;
+	}
+	@media ${QUERIES.phoneAndSmaller} {
+		gap: 16px;
+	}
 `;
 
 const LogoWrapper = styled.div`
-  flex: 1;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    flex: revert;
-  }
+	flex: 1;
+	@media ${QUERIES.tabletAndSmaller} {
+		flex: revert;
+	}
 `;
 
 const ShoppingBagButton = styled(UnstyledButton)`
-  transform: translateX(-2px);
+	transform: translateX(-2px);
 `;
 
 const Filler = styled.div`
-  flex: 1;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    display: none;
-  }
+	flex: 1;
+	@media ${QUERIES.tabletAndSmaller} {
+		display: none;
+	}
 `;
 
 const NavLink = styled.a`
@@ -137,31 +133,30 @@ const NavLink = styled.a`
 	text-decoration: none;
 	color: var(--color-gray-900);
 	font-weight: ${WEIGHTS.medium};
-	display: flex;
-	height: 1.5rem;
-  
-	flex-direction: column;
 	overflow: hidden;
 	
 	&:first-of-type {
 		color: var(--color-secondary);
 	}
 	
+	& > span {
+		position: relative;
+		display: inline-block;
+		transition: transform 300ms;
+	}
+	
+	& > span::before {
+		position: absolute;
+		content: attr(data-hover);
+		font-weight: ${WEIGHTS.bold};
+		top: 100%;
+	}
+	
 	&:hover > span {
-		transform: translateY(-1.5rem);
-		transition: transform 200ms;
+		transform: translateY(-100%);
 	}
 `;
 
-const NavContent = styled.span`
-  height: 1.5rem;
-  line-height: 1.5rem;
-  transition: transform 200ms;
-  
-  &:last-of-type {
-    font-weight: 700;
-  }
-`;
 
 
 export default Header;
